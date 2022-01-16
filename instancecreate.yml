@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  vars:
+      region: "us-west-2"
+      instance_type: "t2.micro"
+      ami: "ami-074251216af698218"
+      keypair: "ramkeynew"
+      subnetname: "subnet-0855548b411ab5108"
+      sg_group: "ram_aws_security_grp"
+  tasks:
+  - ec2:
+     key_name: "{{keypair}}"
+     image: "{{ami}}"
+     region: "{{region}}"
+     vpc_subnet_id: "{{subnetname}}"
+     wait: yes
+     group: "{{sg_group}}"
+     count: 1
+     count_tag:
+            Name: rambabu
+     instance_tags:
+              Name: rambabu
+    register: ec2
