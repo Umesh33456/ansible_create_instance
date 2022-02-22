@@ -12,6 +12,7 @@
      key_name: "{{keypair}}"
      image: "{{ami}}"
      region: "{{region}}"
+     instance_type: "{{instance_type}}"
      vpc_subnet_id: "{{subnetname}}"
      wait: yes
      group: "{{sg_group}}"
