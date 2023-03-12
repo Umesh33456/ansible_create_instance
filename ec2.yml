@@ -1,7 +1,7 @@
 ---
 - name: Update web servers
   hosts: localhost
-  become: yes
+  become: true
   tasks:
   - name: start an instance with a public IP address
     amazon.aws.ec2_instance:
