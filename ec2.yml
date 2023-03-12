@@ -1,13 +1,18 @@
-## Lauch Basic EC@2 instance.
-- name: Ansible Play
+---
+- name: Update web servers
   hosts: localhost
+  become: yes
   tasks:
-  - name: launching AWS instance using Ansible
+  - name: start an instance with a public IP address
+    amazon.aws.ec2_instance:
+            name: "Umesh"
+            key_name: "naveen"
+            region: us-east-1
+            instance_type: t2.micro
+            security_group: default
+            network:
+               assign_public_ip: true
+            image_id: ami-0557a15b87f6559cf
+            tags:
+               Environment: Testing
 
-    ec2:
-      key_name: naveen
-      region: us-east-1
-      instance_type: t2.micro
-      image: ami-0557a15b87f6559cf
-      instance_tags:
-        Name: umesh
