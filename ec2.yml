@@ -1,0 +1,13 @@
+## Lauch Basic EC@2 instance.
+- name: Ansible Play
+  hosts: localhost
+  tasks:
+  - name: launching AWS instance using Ansible
+
+    ec2:
+      key_name: naveen
+      region: us-east-1
+      instance_type: t2.micro
+      image: ami-0557a15b87f6559cf
+      instance_tags:
+        Name: umesh
